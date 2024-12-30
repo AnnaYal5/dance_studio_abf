@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>abf</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <h1>ABF</h1>
+    </div>
+    <nav>
+        <ul>
+                <li><a href="{{ url_for('index') }}">Головна</a></li>
+                <li><a href="{{ url_for('ticket') }}">Абоніменти</a></li>
+                <li><a href="{{ url_for('dance') }}">Танці</a></li>
+                <li><a href="{{ url_for('aboutus') }}">Про нас</a></li>
+                <li><a href="{{ url_for('register') }}">Створити акаунт</a></li>
+
+        </ul>
+    </nav>
+</header>
+
+<div>{% block content %}{% endblock %}</div>
+
+</body>
+</html>

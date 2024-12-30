@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>abf</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body{
+           font-family: Arial, sans-serif;
+            color: #BC8F8F;
+        }
+    </style>
+
+    {% extends 'header.html' %}
+    {% block content %}
+
+<body>
+<div class="user-info">
+    <h1>Профіль користувача: {{ user.username }}</h1>
+    <p>Email: {{ user.email }}</p>
+    <p>Телефон: {{ user.phone }}</p>
+</div>
+
+</body>
+</html>
+{% endblock %}
