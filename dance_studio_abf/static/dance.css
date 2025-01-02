@@ -1,0 +1,82 @@
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h3 {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 2.5rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 60px 50px;
+            justify-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            width: 100%;
+            max-width: 320px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background-color: #BC8F8F;
+            color: #fff;
+            padding: 20px;
+            font-size: 1.4rem;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .card-body {
+            padding: 20px;
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .card-body p {
+            margin: 10px 0;
+        }
+
+        .card-body a {
+            border: 2px solid #2d2d2d;
+            text-decoration: none;
+            color:  #2d2d2d;
+            padding: 9px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .card-body a:hover {
+            background-color: #BC8F8F;
+            color: white;
+            border: none;
+        }
+
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: #2d2d2d;
+        }
