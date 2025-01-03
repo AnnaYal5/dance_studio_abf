@@ -60,7 +60,7 @@ h1 {
     background-color: #c0392b;
 }
 
-/* Стилі для повідомлень (flash messages) */
+
 .flash-message {
     padding: 10px;
     margin-bottom: 20px;
@@ -69,19 +69,19 @@ h1 {
     font-weight: bold;
 }
 
-/* Повідомлення про успіх */
+
 .flash-message.success {
     background-color: #27ae60;
     color: white;
 }
 
-/* Повідомлення про помилки */
+
 .flash-message.danger {
     background-color: #e74c3c;
     color: white;
 }
 
-/* Повідомлення для інформації */
+
 .flash-message.info {
     background-color: #3498db;
     color: white;
@@ -100,7 +100,7 @@ h1 {
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p><strong>Phone:</strong> {{ user.phone }}</p>
     </div>
-    <!-- Кнопка для виходу -->
+
     <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
 </div>
 

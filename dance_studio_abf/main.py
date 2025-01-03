@@ -2,16 +2,14 @@ from flask import Flask, render_template, redirect, url_for, request, flash, ses
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 import json
+from config import Config
+
 
 app = Flask(__name__)
 app.secret_key = "fjyhcvhtfd5667bl"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config.from_object(Config)
 db = SQLAlchemy(app)
 
-@app.route("/")
-def index():
-    return render_template("index.html")
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -19,6 +17,10 @@ class User(db.Model):
     email = db.Column(db.String(150), nullable=False, unique=True)
     password = db.Column(db.String(150), nullable=False)
     phone = db.Column(db.String(13), nullable=False)
+@app.route("/")
+def index():
+    return render_template("index.html")
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -57,7 +59,6 @@ def header():
 
 @app.route("/dance")
 def dance():
-    # Load the JSON data from the file
     try:
         with open("dance.json", 'r', encoding='utf-8') as f:
             dance_data = json.load(f)
@@ -65,7 +66,6 @@ def dance():
         flash('Dance data file not found!', 'danger')
         return redirect(url_for('index'))
 
-    # Pass the data to the template
     return render_template("dance.html", dance_data=dance_data)
 
 @app.route("/ticket")
@@ -96,7 +96,7 @@ def user_account():
 
 @app.route("/logout")
 def logout():
-    session.pop('user_id', None)  # Видаляємо id користувача з сесії
+    session.pop('user_id', None)
     flash('You have been logged out!', 'info')
     return redirect(url_for('index'))
 
