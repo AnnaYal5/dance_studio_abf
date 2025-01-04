@@ -16,6 +16,11 @@ class User(db.Model):
     email = db.Column(db.String(150), nullable=False, unique=True)
     password = db.Column(db.String(150), nullable=False)
     phone = db.Column(db.String(13), nullable=False)
+
+class Ticket(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -69,7 +74,14 @@ def dance():
 
 @app.route("/ticket")
 def ticket():
-    return render_template("ticket.html")
+    try:
+        with open("ticket.json", 'r', encoding='utf-8') as f:
+            ticket_data = json.load(f)
+    except FileNotFoundError:
+        flash('Dance data file not found!', 'danger')
+        return redirect(url_for('index'))
+
+    return render_template("ticket.html", ticket_data=ticket_data)
 
 @app.route("/aboutus")
 def aboutus():

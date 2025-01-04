@@ -2,13 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>abf</title>
-    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance direction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dance.css') }}">
+</head>
 
-    {% extends 'header.html' %}
-    {% block content %}
+{% extends 'header.html' %}
+{% block content %}
+
 <body>
 
+    <h3>Price</h3>
+
+    <div class="cards-container">
+        {% if ticket_data %}
+            {% for ticket in ticket_data %}
+                <div class="card">
+                    <div class="card-header">
+                        {{ ticket.quantity }}
+                    </div>
+                    <div class="card-body">
+                        <p><strong>price:</strong> {{ ticket.price }}</p>
+                        <p><strong>time:</strong> {{ ticket.time }}</p>
+                        <a href="#">Join Now</a>
+                    </div>
+                </div>
+
+            {% endfor %}
+        {% else %}
+            <p style="text-align:center; color: #777;">No dance classes available.</p>
+        {% endif %}
+    </div>
+
 </body>
-</html>
+
 {% endblock %}
+
+</html>
