@@ -13,31 +13,3 @@ h2 {
     color: #BC8F8F;
     }
 
-            footer {
-    color: white;
-    text-align: center;
-    padding: 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    border: 2px solid #BC8F8F
-}
-
-.footer-content ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-content ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-.footer-content ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-.footer-content ul li a:hover {
-    text-decoration: underline;
-}

@@ -6,7 +6,6 @@ from config import Config
 
 
 app = Flask(__name__)
-app.secret_key = "fjyhcvhtfd5667bl"
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 
