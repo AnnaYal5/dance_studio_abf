@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>abf</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='aboutus.css') }}">
 
     {% extends 'header.html' %}
     {% block content %}
 <body>
-
+<h1>Training halls</h1>
+<div class="image-container">
+    <img src="{{ url_for('static', filename='images/aboutus1.jpg') }}" alt="description" class="aboutus-img">
+    <img src="{{ url_for('static', filename='images/aboutus2.jpg') }}" alt="description" class="aboutus-img">
+    <img src="{{ url_for('static', filename='images/aboutus3.jpg') }}" alt="description" class="aboutus-img">
+</div>
 </body>
 </html>
 {% endblock %}

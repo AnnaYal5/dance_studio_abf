@@ -9,7 +9,17 @@ h2 {
     text-align: left;
     margin-left: 20px;
     margin-top: 50px;
-    font-size: 3rem;
+    font-size: 5rem;
     color: #BC8F8F;
     }
 
+.image-container {
+    text-align: right;
+}
+
+.right-img {
+    width: 600px;
+    height: 550px;
+    margin-right: 200px;
+    margin-bottom: 100px;
+}

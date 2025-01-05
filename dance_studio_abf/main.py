@@ -19,7 +19,9 @@ class User(db.Model):
 
 class Ticket(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-
+    username = db.Column(db.String(150), nullable=False, unique=True)
+    phone = db.Column(db.String(13), nullable=False)
+# те, про що ми на уроці говорили (можеш перероблювати)
 
 @app.route("/")
 def index():
@@ -82,6 +84,11 @@ def ticket():
         return redirect(url_for('index'))
 
     return render_template("ticket.html", ticket_data=ticket_data)
+
+@app.route("/ticket_register")
+def ticket_register():
+    return render_template("ticket_register.html")
+# наразі може не знадобитись
 
 @app.route("/aboutus")
 def aboutus():

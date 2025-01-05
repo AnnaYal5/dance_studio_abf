@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dance direction</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='dance.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='ticket.css') }}">
 </head>
 
 {% extends 'header.html' %}
@@ -24,7 +24,7 @@
                     <div class="card-body">
                         <p><strong>price:</strong> {{ ticket.price }}</p>
                         <p><strong>time:</strong> {{ ticket.time }}</p>
-                        <a href="#">Join Now</a>
+                        <a href="{{ url_for('ticket_register')}}">Join Now</a>
                     </div>
                 </div>
 
