@@ -3,7 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 import json
 from config import Config
-
+import phonenumbers
+from email_validator import validate_email, EmailNotValidError
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -21,18 +22,15 @@ class Ticket(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), nullable=False, unique=True)
     phone = db.Column(db.String(13), nullable=False)
-# те, про що ми на уроці говорили (можеш перероблювати)
+
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-
     if 'user_id' in session:
-        flash('You are already logged in.', 'info')
         return redirect(url_for('user_account'))
 
     if request.method == 'POST':
@@ -41,23 +39,47 @@ def register():
         password = request.form['password']
         phone = request.form['phone']
 
-        existing_user = User.query.filter_by(email=email).first()
-        if existing_user:
-            flash('User already exists!', 'danger')
-            return redirect(url_for('register'))
+        errors = {}
+
+
+        if User.query.filter_by(email=email).first():
+            errors['email'] = 'This email is already registered.'
+
+        if User.query.filter_by(username=username).first():
+            errors['username'] = 'This username is already registered.'
+
+
+        try:
+            parsed_number = phonenumbers.parse(phone, "UA")
+            if not phonenumbers.is_valid_number(parsed_number):
+                errors['phone'] = 'Invalid phone number.'
+        except phonenumbers.phonenumberutil.NumberParseException:
+            errors['phone'] = 'Invalid phone number.'
+
+
+        try:
+            validate_email(email)
+        except EmailNotValidError as e:
+            errors['email'] = str(e)
+
+
+        if errors:
+            return render_template('register.html', errors=errors, request=request)
+
 
         password_hash = generate_password_hash(password, method='pbkdf2:sha256')
-
         new_user = User(username=username, email=email, password=password_hash, phone=phone)
         db.session.add(new_user)
         db.session.commit()
 
 
         session['user_id'] = new_user.id
-        flash('Registration successful! You are now logged in.', 'success')
         return redirect(url_for('user_account'))
 
     return render_template('register.html')
+
+
+
 
 @app.route("/header")
 def header():

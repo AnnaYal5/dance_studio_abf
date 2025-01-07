@@ -6,38 +6,36 @@ body {
 }
 
 .container {
-    width: 100%;
     max-width: 400px;
-    margin: 100px auto;
+    margin: 30px auto;
+    background-color: #191919;
     padding: 30px;
-    background-color: black;
-    border-radius: 5px;
+    border-radius: 8px;
 
 }
 
-
-h2 {
+h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #BC8F8F;
     font-size: 2rem;
 }
 
-
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="phone"] {
-    width: 100%;
+    width: 90%;
     padding: 12px 20px;
     margin: 15px 0;
     border: 1px solid #BC8F8F;
-    border-radius: 4px;
+    border-radius: 3px;
     background-color: #444;
     color: #fff;
     font-size: 16px;
 }
 
+/* Фокус на полях вводу */
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
@@ -46,7 +44,7 @@ input[type="phone"]:focus {
     outline: none;
 }
 
-
+/* Стилі для кнопки */
 button {
     width: 100%;
     padding: 12px 20px;
@@ -58,14 +56,14 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
-
 }
 
+/* Стилі для кнопки при наведенні */
 button:hover {
-    background-color: #e91e63;
+    background-color: #bdbebd;
 }
 
-
+/* Стилі для сповіщень (flash) */
 .flash {
     text-align: center;
     padding: 10px;
@@ -84,23 +82,58 @@ button:hover {
     color: white;
 }
 
-
-a {
-    color: #f06292;
-    text-decoration: none;
+/* Стилі для помилок знизу форми */
+.form-errors {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8d7da;  /* Легкий фон для помилок */
+    border-radius: 5px;
+    color: #721c24;
+    font-size: 14px;
 }
 
-a:hover {
-    text-decoration: underline;
+/* Стилі для окремих помилок */
+.error-message {
+    color: #f44336;  /* Червоний колір для помилок */
+    font-size: 14px;
+    margin-bottom: 5px;
 }
 
+/* Показуємо помилки лише якщо вони є */
+.form-errors.show {
+    display: block;
+}
 
+/* Анімація для помилок */
+.error-message {
+    animation: shake 0.5s ease-out;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(-10px);
+    }
+    25% {
+        transform: translateX(10px);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Адаптивність для мобільних пристроїв */
 @media (max-width: 480px) {
     .container {
         padding: 20px;
     }
 
-    h2 {
+    h1 {
         font-size: 1.5rem;
     }
 

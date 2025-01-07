@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>abf</title>
-   <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Always Big Family Dance Studio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     {% extends 'header.html' %}
     {% block content %}
-
 </head>
 <body>
-<h2>Always big family</h2>
-<div class="image-container">
-    <img src="{{ url_for('static', filename='images/photo2.jpg') }}" alt="description" class="right-img">
-</div>
-
-
+    <div class="container">
+        <div class="text-section">
+            <h2>Always Big Family</h2>
+            <p>У студії Always Big Family ми віримо, що танець об'єднує людей усіх вікових категорій. Незалежно від того, чи ви початківець, чи досвідчений танцюрист, ми пропонуємо різноманітні заняття, що допоможуть вам розкрити ваш потенціал. Приєднуйтесь до нашої великої родини і танцюймо разом!</p>
+        </div>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/photo2.jpg') }}" alt="description" class="right-img">
+        </div>
+    </div>
 </body>
 </html>
-
 {% endblock %}

@@ -2,108 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>abf</title>
-    <link rel="stylesheet" href="./style.css">
-    <style>
-body {
-    font-family: Arial, sans-serif;
-    color: #BC8F8F;
-    margin: 0;
-    padding: 0;
-}
-
-
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    background-color: #222222;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-
-h1 {
-    text-align: center;
-    color: #BC8F8F;
-    margin-bottom: 20px;
-}
-
-
-.profile-info {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-.profile-info p {
-    margin: 8px 0;
-}
-
-.profile-info strong {
-    color: #BC8F8F;
-}
-
-
-.logout-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #ff6666;
-    color: white;
-    font-size: 16px;
-    text-align: center;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.logout-btn:hover {
-    background-color: #c0392b;
-}
-
-
-.flash-message {
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
-}
-
-
-.flash-message.success {
-    background-color: #27ae60;
-    color: white;
-}
-
-
-.flash-message.danger {
-    background-color: #e74c3c;
-    color: white;
-}
-
-
-.flash-message.info {
-    background-color: #3498db;
-    color: white;
-}
-
-    </style>
-
-    {% extends 'header.html' %}
-    {% block content %}
+    <title>User Account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='user_account.css') }}">
+</head>
 
 <body>
-<div class="container">
-    <h1>User Account</h1>
-    <div class="profile-info">
-        <p><strong>Username:</strong> {{ user.username }}</p>
-        <p><strong>Email:</strong> {{ user.email }}</p>
-        <p><strong>Phone:</strong> {{ user.phone }}</p>
-    </div>
+{% extends 'header.html' %}
+{% block content %}
+    <section class="user-account-section">
 
-    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
-</div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-message">
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
 
+        <div class="user-profile">
+            <img src="{{ url_for('static', filename='images/user_photo.jpg') }}" alt="User Photo" class="user-photo">
+
+            <div class="profile-info">
+                <p><strong>Username:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Phone:</strong> {{ user.phone }}</p>
+            </div>
+
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </div>
+    </section>
+{% endblock %}
 </body>
 </html>
-{% endblock %}

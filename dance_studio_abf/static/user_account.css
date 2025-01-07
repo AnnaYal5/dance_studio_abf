@@ -1,0 +1,108 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.user-account-section {
+    text-align: center;
+    padding: 20px;
+    background-color: black;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 600px;
+}
+
+.flash-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.flash-message.success {
+    background-color: #27ae60;
+    color: white;
+}
+
+.flash-message.danger {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.flash-message.info {
+    background-color: #BC8F8F;
+    color: white;
+}
+
+.user-profile {
+    margin-top: 20px;
+}
+
+.user-photo {
+    margin-top: 50px;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin-bottom: 40px;
+    border: 3px solid #BC8F8F;
+    object-fit: cover;
+}
+
+.profile-info {
+    font-size: 1.2rem;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.profile-info p {
+    margin: 10px 0;
+}
+
+.profile-info strong {
+    color: #BC8F8F;
+}
+
+.logout-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #d3d3d3;
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+}
+
+.logout-btn:hover {
+    background-color: #BC8F8F;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .user-account-section {
+        padding: 15px;
+    }
+
+    .profile-info {
+        font-size: 1rem;
+    }
+
+    .logout-btn {
+        width: 100%;
+        padding: 12px;
+    }
+}
