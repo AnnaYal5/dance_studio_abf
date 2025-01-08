@@ -35,7 +35,7 @@ input[type="phone"] {
     font-size: 16px;
 }
 
-/* Фокус на полях вводу */
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
@@ -44,7 +44,7 @@ input[type="phone"]:focus {
     outline: none;
 }
 
-/* Стилі для кнопки */
+
 button {
     width: 100%;
     padding: 12px 20px;
@@ -58,12 +58,10 @@ button {
     transition: background-color 0.3s;
 }
 
-/* Стилі для кнопки при наведенні */
 button:hover {
     background-color: #bdbebd;
 }
 
-/* Стилі для сповіщень (flash) */
 .flash {
     text-align: center;
     padding: 10px;
@@ -82,29 +80,28 @@ button:hover {
     color: white;
 }
 
-/* Стилі для помилок знизу форми */
+
 .form-errors {
     margin-top: 20px;
     padding: 10px;
-    background-color: #f8d7da;  /* Легкий фон для помилок */
+    background-color: #f8d7da;
     border-radius: 5px;
     color: #721c24;
     font-size: 14px;
 }
 
-/* Стилі для окремих помилок */
 .error-message {
-    color: #f44336;  /* Червоний колір для помилок */
+    color: #f44336;
     font-size: 14px;
     margin-bottom: 5px;
 }
 
-/* Показуємо помилки лише якщо вони є */
+
 .form-errors.show {
     display: block;
 }
 
-/* Анімація для помилок */
+
 .error-message {
     animation: shake 0.5s ease-out;
 }
@@ -127,7 +124,7 @@ button:hover {
     }
 }
 
-/* Адаптивність для мобільних пристроїв */
+
 @media (max-width: 480px) {
     .container {
         padding: 20px;

@@ -5,11 +5,22 @@ import json
 from config import Config
 import phonenumbers
 from email_validator import validate_email, EmailNotValidError
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
+
+class Subscription(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    quantity = db.Column(db.String(100), nullable=False)  # Тип абонементу
+    price = db.Column(db.Integer, nullable=False)          # Ціна абонементу
+    time = db.Column(db.String(100), nullable=False)      # Тривалість абонементу (місяць)
+
+    def __repr__(self):
+        return f"<Subscription {self.quantity} - {self.price} UAH>"
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -18,10 +29,9 @@ class User(db.Model):
     password = db.Column(db.String(150), nullable=False)
     phone = db.Column(db.String(13), nullable=False)
 
-class Ticket(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(150), nullable=False, unique=True)
-    phone = db.Column(db.String(13), nullable=False)
+
+
+
 
 
 @app.route("/")
@@ -78,9 +88,6 @@ def register():
 
     return render_template('register.html')
 
-
-
-
 @app.route("/header")
 def header():
     return render_template("header.html")
@@ -96,21 +103,11 @@ def dance():
 
     return render_template("dance.html", dance_data=dance_data)
 
-@app.route("/ticket")
-def ticket():
-    try:
-        with open("ticket.json", 'r', encoding='utf-8') as f:
-            ticket_data = json.load(f)
-    except FileNotFoundError:
-        flash('Dance data file not found!', 'danger')
-        return redirect(url_for('index'))
+@app.route("/subscriptions")
+def subscriptions():
+    subscriptions = Subscription.query.all()
+    return render_template("subscriptions.html", subscriptions=subscriptions)
 
-    return render_template("ticket.html", ticket_data=ticket_data)
-
-@app.route("/ticket_register")
-def ticket_register():
-    return render_template("ticket_register.html")
-# наразі може не знадобитись
 
 @app.route("/aboutus")
 def aboutus():

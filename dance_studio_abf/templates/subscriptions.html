@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance direction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='subscriptions.css') }}">
+</head>
+<body>
+    {% extends 'header.html' %}
+
+    {% block content %}
+    <h1>All Subscriptions</h1>
+    <div class="card-container">
+        {% for subscription in subscriptions %}
+        <div class="card">
+            <h2>{{ subscription.quantity }} Subscription</h2>
+            <p><strong>Price:</strong> {{ subscription.price }} UAH</p>
+            <p><strong>Duration:</strong> {{ subscription.time }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+</body>
+</html>
