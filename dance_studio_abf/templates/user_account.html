@@ -11,18 +11,6 @@
 {% block content %}
     <section class="user-account-section">
 
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <div class="flash-message">
-                    {% for category, message in messages %}
-                        <div class="flash-message {{ category }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                </div>
-            {% endif %}
-        {% endwith %}
-
         <div class="user-profile">
             <img src="{{ url_for('static', filename='images/user_photo.jpg') }}" alt="User Photo" class="user-photo">
 
@@ -35,6 +23,13 @@
             <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
         </div>
     </section>
+<h2>Your Subscription</h2>
+{% if user.subscription %}
+    <p>{{ user.subscription.quantity }} на {{ user.subscription.time }}</p>
+{% else %}
+    <p>Абоніментів немає.</p>
+{% endif %}
+
 {% endblock %}
 </body>
 </html>

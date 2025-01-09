@@ -14,9 +14,12 @@
     <div class="card-container">
         {% for subscription in subscriptions %}
         <div class="card">
-            <h2>{{ subscription.quantity }} Subscription</h2>
+            <h2>{{ subscription.quantity }}</h2>
             <p><strong>Price:</strong> {{ subscription.price }} UAH</p>
             <p><strong>Duration:</strong> {{ subscription.time }}</p>
+        <form method="POST" action="{{ url_for('order_subscription', subscription_id=subscription.id) }}">
+            <button type="submit" class="order-button">Order</button>
+        </form>
         </div>
         {% endfor %}
     </div>
