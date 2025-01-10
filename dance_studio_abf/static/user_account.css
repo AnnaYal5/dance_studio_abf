@@ -1,108 +1,68 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
-    color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+.user-account-section {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    padding: 40px 20px;
 }
 
-.user-account-section {
-    text-align: center;
-    padding: 20px;
-    background-color: black;
-    border-radius: 10px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 600px;
-}
-
-.flash-message {
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-.flash-message.success {
-    background-color: #27ae60;
-    color: white;
-}
-
-.flash-message.danger {
-    background-color: #e74c3c;
-    color: white;
-}
-
-.flash-message.info {
-    background-color: #BC8F8F;
-    color: white;
-}
 
 .user-profile {
-    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
+
 
 .user-photo {
-    margin-top: 50px;
-    width: 170px;
-    height: 170px;
-    border-radius: 50%;
-    margin-bottom: 40px;
+    width: 150px;
+    height: 150px;
     border: 3px solid #BC8F8F;
+    border-radius: 50%;
     object-fit: cover;
-}
-
-.profile-info {
-    font-size: 1.2rem;
-    color: #ddd;
     margin-bottom: 20px;
 }
 
+
 .profile-info p {
+    font-size: 16px;
     margin: 10px 0;
+    color: #333;
 }
 
-.profile-info strong {
-    color: #BC8F8F;
-}
 
 .logout-btn {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #d3d3d3;
-    color: black;
-    font-size: 18px;
-    text-align: center;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
     margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #BC8F8F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
 }
 
 .logout-btn:hover {
-    background-color: #BC8F8F;
-    transform: scale(1.05);
+    background-color: #333333;
 }
 
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
 
-    .user-account-section {
-        padding: 15px;
-    }
+h2 {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 24px;
+    color: #444;
+}
 
-    .profile-info {
-        font-size: 1rem;
-    }
-
-    .logout-btn {
-        width: 100%;
-        padding: 12px;
-    }
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
 }

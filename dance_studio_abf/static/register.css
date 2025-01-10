@@ -2,71 +2,34 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #fff;
     margin: 0;
+    max-width: 1200px
     padding: 0;
 }
 
 .container {
-    max-width: 400px;
+    max-width: 700px;
     margin: 30px auto;
-    background-color: #191919;
+    background-color: #2e2e2e;;
     padding: 30px;
     border-radius: 8px;
 
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #BC8F8F;
+
+h1.register-title {
     font-size: 2rem;
+    color: #BC8F8F;
+    margin-bottom: 20px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="phone"] {
-    width: 90%;
-    padding: 12px 20px;
-    margin: 15px 0;
-    border: 1px solid #BC8F8F;
-    border-radius: 3px;
-    background-color: #444;
-    color: #fff;
-    font-size: 16px;
-}
-
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="phone"]:focus {
-    border-color: #BC8F8F;
-    outline: none;
-}
-
-
-button {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 10px 0;
-    background-color: #BC8F8F;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #bdbebd;
+.flash-messages {
+    margin-bottom: 20px;
 }
 
 .flash {
-    text-align: center;
     padding: 10px;
-    margin: 10px 0;
-    border-radius: 4px;
+    margin-top: 10px;
+    border-radius: 5px;
     font-weight: bold;
 }
 
@@ -80,47 +43,87 @@ button:hover {
     color: white;
 }
 
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-.form-errors {
-    margin-top: 20px;
-    padding: 10px;
+.register-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.register-form input:focus {
+    border-color: #BC8F8F;
+    background-color: #444;
+    outline: none;
+}
+
+.error-message {
     background-color: #f8d7da;
-    border-radius: 5px;
     color: #721c24;
-    font-size: 14px;
+    padding: 8px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
 }
 
-.error-message {
-    color: #f44336;
-    font-size: 14px;
-    margin-bottom: 5px;
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #BC8F8F;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
-
-.form-errors.show {
-    display: block;
+.btn:hover {
+    background-color: #d08a8a;
 }
 
-
-.error-message {
-    animation: shake 0.5s ease-out;
+ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-@keyframes shake {
-    0% {
-        transform: translateX(-10px);
+ul li {
+    margin-top: 10px;
+}
+
+ul li a {
+    color: #BC8F8F;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 90%;
     }
-    25% {
-        transform: translateX(10px);
+
+    h1.register-title {
+        font-size: 1.5rem;
     }
-    50% {
-        transform: translateX(-10px);
-    }
-    75% {
-        transform: translateX(10px);
-    }
-    100% {
-        transform: translateX(0);
+
+    .btn {
+        font-size: 1rem;
     }
 }
 
