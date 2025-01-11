@@ -15,16 +15,16 @@
     <h3>Dance direction</h3>
 
     <div class="cards-container">
-        {% if dance_data %}
-            {% for dance_class in dance_data %}
+        {% if danceclass %}
+            {% for dance  in danceclass %}
                 <div class="card">
                     <div class="card-header">
-                        {{ dance_class.direction }}
+                        {{ dance.direction }}
                     </div>
                     <div class="card-body">
-                        <p><strong>Teacher:</strong> {{ dance_class.price }}</p>
-                        <p><strong>Group:</strong> {{ dance_class.group }}</p>
-                        <p><strong>Schedule:</strong> {{ dance_class.schedule }}</p>
+                        <p><strong>Teacher:</strong> {{ dance.teacher }}</p>
+                        <p><strong>Group:</strong> {{ dance.group }}</p>
+                        <p><strong>Schedule:</strong> {{ dance.schedule }}</p>
                         <a href="{{ url_for('subscriptions') }}">Join Now</a>
                     </div>
                 </div>

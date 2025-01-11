@@ -21,3 +21,11 @@ class User(db.Model):
     subscription = db.relationship('Subscription', backref='user', lazy=True)
 
 
+class DanceClass(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    direction = db.Column(db.String(150), nullable=False, unique=True)
+    teacher = db.Column(db.String(150), nullable=False, unique=True)
+    group = db.Column(db.String(150), nullable=False, unique=True)
+    schedule = db.Column(db.String(13), nullable=False, unique=True)
+
+

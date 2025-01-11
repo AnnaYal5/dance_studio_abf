@@ -1,18 +1,17 @@
 from flask import Flask, render_template, redirect, url_for, request, flash, session
-from werkzeug.security import generate_password_hash, check_password_hash
 import json
 from config import Config
 import phonenumbers
 from email_validator import validate_email, EmailNotValidError
+from werkzeug.security import generate_password_hash, check_password_hash
+from models.models import db, User, Subscription, DanceClass
 from flask_migrate import Migrate
-from models.models import db, User, Subscription
 
 
 app = Flask(__name__)
 app.config.from_object(Config)
 db.init_app(app)
 migrate = Migrate(app, db)
-
 
 @app.route("/")
 def index():
@@ -113,7 +112,7 @@ def login():
             return redirect(url_for('user_account'))
         else:
             errors['login'] = 'Невірний email або пароль.'
-            flash('Невірний email або пароль!', 'danger')
+
 
     return render_template('login.html', errors=errors)
 
@@ -121,14 +120,8 @@ def login():
 
 @app.route("/dance")
 def dance():
-    try:
-        with open("dance.json", 'r', encoding='utf-8') as f:
-            dance_data = json.load(f)
-    except FileNotFoundError:
-        flash('Dance data file not found!', 'danger')
-        return redirect(url_for('index'))
-
-    return render_template("dance.html", dance_data=dance_data)
+    danceclass = DanceClass.query.all()
+    return render_template("dance.html", danceclass=danceclass)
 
 
 @app.route("/subscriptions")

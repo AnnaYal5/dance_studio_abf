@@ -1,1 +1,1 @@
-from .models import db, User, Subscription
+from .models import db, User, Subscription, DanceClass
